@@ -5,18 +5,23 @@
       <mat-icon class="mat-18" (click)="this.sideNav.close()" *ngIf="sideNav.opened" >close</mat-icon>
 
     </button>
-    <span>My Application</span>
+    <span>LP NEWS</span>
   </mat-toolbar>
 
 <mat-sidenav-container>
   <mat-sidenav #sideNav="matSidenav">
-    <img src="" alt="" class="avatar mat-elevation-z8">
+    <img src="https://cdn4.vectorstock.com/i/thumb-large/50/08/news-alerts-breaking-logo-tv-design-element-vector-24575008.jpg" alt="" class="avatar mat-elevation-z8">
     <h4>Let's Program</h4>
     <mat-divider></mat-divider>
-    <mat-list>
-      <mat-list-item *ngFor="let s of source"> <button mat-button class="menu-button"></button>
-        <mat-icon>event-note</mat-icon>
-        <span>{{s.name}}</span></mat-list-item>
+    <mat-list >
+      <mat-list-item *ngFor="let s of source">
+        <button mat-button class="menu-button" (click)="searchSource(s)">
+          <mat-icon>event-note</mat-icon>
+          <span>{{s.name}}</span>
+        </button>
+
+
+      </mat-list-item>
 
     </mat-list>
 
@@ -29,7 +34,7 @@
       <div class="container px-5  mx-auto max-w-7x1">
         <div class="flex flex-wrap w-full mb-4 p-4">
           <div class="w-full mb-6 lg:mb-0">
-            <h1 class="sm:text-4xl text-5xl font-medium title-font mb-2 text-gray-900"></h1>
+            <h1 class="sm:text-4xl text-5xl font-medium title-font mb-2 text-gray-900"> {{selectedChanel}}</h1>
             <div class="h-1 w-60 bg-indigo-500 rounded"></div>
           </div>
         </div>

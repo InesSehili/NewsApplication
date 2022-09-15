@@ -6,6 +6,9 @@ mat-sidenav {
 
 mat-sidenav-container {
   height: calc(100vh - 65px);
+  width: 100%;
 
-
+}
+mat-list-item {
+  float: left;
 }

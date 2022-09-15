@@ -12,7 +12,8 @@ export class AppComponent implements  AfterViewInit, OnInit{
   title = 'NewsApp';
   @ViewChild(MatSidenav) sideNav! : MatSidenav;
   source :any  = [];
-  article: any= [];
+  article:any= [];
+  selectedChanel : string = "Top 10 News"
   // I have a side bare ere now i want to open and close this
   constructor(private observer : BreakpointObserver, private dc : ChangeDetectorRef, private newService : NewsService) {
   }
@@ -46,11 +47,19 @@ export class AppComponent implements  AfterViewInit, OnInit{
       });
 
       },500);
-    this.dc.detectChanges()
+    this.dc.detectChanges();
 
 
   }
-  getSources(){}
+
+  searchSource(s: any) {
+    this.newService.getArticlesByID(s.id).subscribe(
+      (res : any) => {
+        this.article = res.articles;
+        this.selectedChanel = s.name;
+      }
+    );
+  }
 
 
 }
